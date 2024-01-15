@@ -9,9 +9,10 @@ class Themes {
         color: Colors.grey[850],
       ),
       listTileTheme: ListTileThemeData(
-        contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+        contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 12),
         tileColor: Colors.grey[800],
         titleTextStyle: TextStyle(fontSize: 24),
+        subtitleTextStyle: TextStyle(fontSize: 14, color: Colors.white70),
       ),
       appBarTheme: AppBarTheme(backgroundColor: Colors.grey[900]),
       primaryColor: Colors.grey[800],

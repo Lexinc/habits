@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:habits/presentation/screens/adding_habits.dart';
+import 'package:habits/presentation/screens/adding_habbits/adding_habits.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
