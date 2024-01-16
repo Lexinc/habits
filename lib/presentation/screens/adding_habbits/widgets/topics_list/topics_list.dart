@@ -13,35 +13,41 @@ class TopicsList extends StatelessWidget {
 
     TopicsData topicsData = TopicsData();
     List<Map<String, dynamic>> topicsList = topicsData.topicsList;
-    return Expanded(
-      child: Container(
-        margin: boxMargin,
-        child: Hero(
-            tag: 'ListTile-Hero-Choose',
-            child: Material(
+
+    final Set<Widget> widgetSet = {};
+    for (Map<String, dynamic> item in topicsList) {
+      widgetSet.add(Container(
+        margin: const EdgeInsets.only(bottom: 20),
+        child: ListTile(
+          title: Text('${item['title']}'),
+          subtitle: Padding(
+            padding: const EdgeInsets.only(top: 4),
+            child: Text(
+              '${item['subtitle']}',
+              style: theme.listTileTheme.subtitleTextStyle,
+            ),
+          ),
+          trailing: Image(
+            image: AssetImage('${item['image']}'),
+          ),
+          shape: RoundedRectangleBorder(borderRadius: boxBorderRadius),
+          tileColor: theme.cardTheme.color,
+          contentPadding: theme.listTileTheme.contentPadding,
+          onTap: () {},
+        ),
+      ));
+    }
+    final List<Widget> widgetList = widgetSet.toList();
+
+    return Container(
+      margin: boxMargin,
+      child: Hero(
+          tag: 'ListTile-Hero-Choose',
+          child: Material(
               color: theme.primaryColor,
-              child: ListView.builder(
-                itemCount: topicsList.length,
-                itemBuilder: (context, index) {
-                  Map<String, dynamic> currentTopic = topicsList[index];
-                  return Container(
-                    margin: const EdgeInsets.only(bottom: 20),
-                    child: ListTile(
-                      title: Text('${currentTopic['title']}'),
-                      subtitle: Text(
-                        '${currentTopic['subtitle']}',
-                        style: theme.listTileTheme.subtitleTextStyle,
-                      ),
-                      shape:
-                          RoundedRectangleBorder(borderRadius: boxBorderRadius),
-                      tileColor: theme.cardTheme.color,
-                      contentPadding: theme.listTileTheme.contentPadding,
-                    ),
-                  );
-                },
-              ),
-            )),
-      ),
+              child: Column(
+                children: widgetList,
+              ))),
     );
   }
 }

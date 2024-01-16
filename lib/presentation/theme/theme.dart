@@ -12,7 +12,7 @@ class Themes {
         contentPadding: EdgeInsets.symmetric(horizontal: 15, vertical: 12),
         tileColor: Colors.grey[800],
         titleTextStyle: TextStyle(fontSize: 24),
-        subtitleTextStyle: TextStyle(fontSize: 14, color: Colors.white70),
+        subtitleTextStyle: TextStyle(fontSize: 18, color: Colors.white70),
       ),
       appBarTheme: AppBarTheme(backgroundColor: Colors.grey[900]),
       primaryColor: Colors.grey[800],

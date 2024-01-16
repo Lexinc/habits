@@ -17,3 +17,7 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets\img\icons8-group-of-fruits-96.png
+    - assets\img\icons8-sleep-96.png
+    - assets\img\icons8-wake-up-with-sun-96.png

@@ -5,9 +5,7 @@ import 'package:habits/presentation/screens/adding_habbits/adding_habits.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-  // Icons.event_repeat
-  // Icons.event
-  // Icons.date_range
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);

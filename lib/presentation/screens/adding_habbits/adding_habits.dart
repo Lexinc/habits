@@ -35,107 +35,120 @@ class _AddingHabitsState extends State<AddingHabits> {
               style: TextStyle(fontSize: 18),
             )),
       ),
-      body: Container(
-        color: theme.primaryColor,
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-              child: Row(children: [
-                Expanded(
-                    child: Divider(
-                  color: theme.dividerColor,
-                )),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Text(
-                    'Create your own',
-                    style: theme.textTheme.headlineSmall,
+      body: LayoutBuilder(
+          builder: (BuildContext context, BoxConstraints viewportConstraints) {
+        return SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints:
+                BoxConstraints(minHeight: viewportConstraints.maxHeight),
+            child: Container(
+              color: theme.primaryColor,
+              child: Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    child: Row(children: [
+                      Expanded(
+                          child: Divider(
+                        color: theme.dividerColor,
+                      )),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: Text(
+                          'Create your own',
+                          style: theme.textTheme.headlineSmall,
+                        ),
+                      ),
+                      Expanded(
+                          child: Divider(
+                        color: theme.dividerColor,
+                      ))
+                    ]),
                   ),
-                ),
-                Expanded(
-                    child: Divider(
-                  color: theme.dividerColor,
-                ))
-              ]),
-            ),
-            Hero(
-              tag: 'ListTile-Hero-Create',
-              child: Material(
-                color: theme.primaryColor,
-                child: Column(
-                  children: [
-                    Container(
-                      margin: boxMargin,
-                      child: ListTile(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: boxBorderRadius),
-                        tileColor: theme.cardTheme.color,
-                        contentPadding: theme.listTileTheme.contentPadding,
-                        leading: Icon(
-                          Icons.calendar_month,
-                          size: decorationIconSize,
-                          color: Color.fromARGB(255, 0, 182, 206),
-                        ),
-                        trailing: Icon(
-                          Icons.navigate_next,
-                          size: navigationIconSize,
-                          color: createListTrailingColor,
-                        ),
-                        title: Text('Repetitive habit'),
-                        titleTextStyle: theme.listTileTheme.titleTextStyle,
-                        onTap: () {},
+                  Hero(
+                    tag: 'ListTile-Hero-Create',
+                    child: Material(
+                      color: theme.primaryColor,
+                      child: Column(
+                        children: [
+                          Container(
+                            margin: boxMargin,
+                            child: ListTile(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: boxBorderRadius),
+                              tileColor: theme.cardTheme.color,
+                              contentPadding:
+                                  theme.listTileTheme.contentPadding,
+                              leading: Icon(
+                                Icons.calendar_month,
+                                size: decorationIconSize,
+                                color: Color.fromARGB(255, 0, 182, 206),
+                              ),
+                              trailing: Icon(
+                                Icons.navigate_next,
+                                size: navigationIconSize,
+                                color: createListTrailingColor,
+                              ),
+                              title: Text('Repetitive habit'),
+                              titleTextStyle:
+                                  theme.listTileTheme.titleTextStyle,
+                              onTap: () {},
+                            ),
+                          ),
+                          Container(
+                            margin: boxMargin,
+                            child: ListTile(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: boxBorderRadius),
+                              tileColor: theme.cardTheme.color,
+                              leading: Icon(
+                                Icons.event_available,
+                                size: decorationIconSize,
+                                color: Colors.amber[800],
+                              ),
+                              trailing: Icon(
+                                Icons.navigate_next,
+                                size: navigationIconSize,
+                                color: createListTrailingColor,
+                              ),
+                              title: Text('One time task'),
+                              titleTextStyle:
+                                  theme.listTileTheme.titleTextStyle,
+                              onTap: () {},
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                    Container(
-                      margin: boxMargin,
-                      child: ListTile(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: boxBorderRadius),
-                        tileColor: theme.cardTheme.color,
-                        leading: Icon(
-                          Icons.event_available,
-                          size: decorationIconSize,
-                          color: Colors.amber[800],
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(
+                        left: 20, right: 20, top: 20, bottom: 5),
+                    child: Row(children: [
+                      Expanded(
+                          child: Divider(
+                        color: theme.dividerColor,
+                      )),
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 10),
+                        child: Text(
+                          'Or choose from these topics',
+                          style: theme.textTheme.headlineSmall,
                         ),
-                        trailing: Icon(
-                          Icons.navigate_next,
-                          size: navigationIconSize,
-                          color: createListTrailingColor,
-                        ),
-                        title: Text('One time task'),
-                        titleTextStyle: theme.listTileTheme.titleTextStyle,
-                        onTap: () {},
                       ),
-                    ),
-                  ],
-                ),
+                      Expanded(
+                          child: Divider(
+                        color: theme.dividerColor,
+                      ))
+                    ]),
+                  ),
+                  TopicsList(),
+                ],
               ),
             ),
-            Container(
-              padding: EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 5),
-              child: Row(children: [
-                Expanded(
-                    child: Divider(
-                  color: theme.dividerColor,
-                )),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Text(
-                    'Or choose from these topics',
-                    style: theme.textTheme.headlineSmall,
-                  ),
-                ),
-                Expanded(
-                    child: Divider(
-                  color: theme.dividerColor,
-                ))
-              ]),
-            ),
-            TopicsList(),
-          ],
-        ),
-      ),
+          ),
+        );
+      }),
     );
   }
 }
