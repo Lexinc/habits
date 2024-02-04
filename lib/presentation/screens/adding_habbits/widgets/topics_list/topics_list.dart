@@ -8,14 +8,14 @@ class TopicsList extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final BorderRadius boxBorderRadius = BorderRadius.circular(10);
-    const EdgeInsets boxMargin =
-        EdgeInsets.symmetric(horizontal: 20, vertical: 12);
+    const EdgeInsets boxMargin = EdgeInsets.symmetric(vertical: 12);
 
     TopicsData topicsData = TopicsData();
     List<Map<String, dynamic>> topicsList = topicsData.topicsList;
 
     final Set<Widget> widgetSet = {};
     for (Map<String, dynamic> item in topicsList) {
+      final String routesName = '/${item['navigatorName']}';
       widgetSet.add(Container(
         margin: const EdgeInsets.only(bottom: 20),
         child: ListTile(
@@ -33,7 +33,9 @@ class TopicsList extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: boxBorderRadius),
           tileColor: theme.cardTheme.color,
           contentPadding: theme.listTileTheme.contentPadding,
-          onTap: () {},
+          onTap: () {
+            Navigator.pushNamed(context, routesName);
+          },
         ),
       ));
     }
