@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:habits/presentation/screens/adding_habbits/adding_screens/one_time_task.dart';
 import 'package:habits/presentation/screens/adding_habbits/adding_screens/repetitive_habit.dart';
+import 'package:habits/presentation/screens/adding_habbits/widgets/divider_text_title.dart';
 import 'package:habits/presentation/screens/adding_habbits/widgets/topics_list/topics_list.dart';
 import 'package:habits/presentation/widgets/main_wrapper.dart';
 
@@ -41,25 +42,10 @@ class _AddingHabitsState extends State<AddingHabits> {
           child: Column(
             children: [
               Container(
-                padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                child: Row(children: [
-                  Expanded(
-                      child: Divider(
-                    color: theme.dividerColor,
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: DividerTextTitle(
+                    text: 'Create your own',
                   )),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      'Create your own',
-                      style: theme.textTheme.headlineSmall,
-                    ),
-                  ),
-                  Expanded(
-                      child: Divider(
-                    color: theme.dividerColor,
-                  ))
-                ]),
-              ),
               Hero(
                 tag: 'ListTile-Hero-Create',
                 child: Material(
@@ -129,25 +115,8 @@ class _AddingHabitsState extends State<AddingHabits> {
                 ),
               ),
               Container(
-                padding: EdgeInsets.only(top: 20, bottom: 5),
-                child: Row(children: [
-                  Expanded(
-                      child: Divider(
-                    color: theme.dividerColor,
-                  )),
-                  Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      'Or choose from these topics',
-                      style: theme.textTheme.headlineSmall,
-                    ),
-                  ),
-                  Expanded(
-                      child: Divider(
-                    color: theme.dividerColor,
-                  ))
-                ]),
-              ),
+                  padding: EdgeInsets.only(top: 20, bottom: 5),
+                  child: DividerTextTitle(text: 'Or choose from these topics')),
               TopicsList(),
             ],
           ),

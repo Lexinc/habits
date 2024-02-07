@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habits/presentation/screens/adding_habbits/widgets/divider_text_title.dart';
 import 'package:habits/presentation/widgets/main_wrapper.dart';
 
 class OneTimeTask extends StatefulWidget {
@@ -22,23 +23,27 @@ class _OneTimeTaskState extends State<OneTimeTask> {
           child: Column(
         children: [
           Container(
-            color: Colors.amber,
-            height: 20,
-            width: double.infinity,
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: const DividerTextTitle(text: 'Name of habit')),
+          Container(
+            margin: const EdgeInsets.symmetric(vertical: 10),
+            decoration: BoxDecoration(
+              color: Colors.white38,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: TextField(
+              style: const TextStyle(),
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(10),
+              )),
+            ),
           ),
           Container(
-            color: Colors.red,
-            height: 20,
-            width: double.infinity,
-          ),
-          Container(
-            color: Colors.green,
-            height: 20,
-            width: double.infinity,
-          )
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: const DividerTextTitle(text: 'Description')),
         ],
       )),
     );
-    ;
   }
 }
